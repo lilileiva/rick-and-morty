@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Route, Routes } from "react-router-dom";
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import CharactersList from './components/CharactersList/CharactersList';
+import CharacterDetails from './components/CharacterDetails/CharacterDetails';
+import EpisodesList from './components/EpisodesList/EpisodesList';
+import EpisodeDetails from './components/EpisodeDetails/EpisodeDetails';
+import LocationsList from './components/LocationsList/LocationsList';
+import LocationDetails from './components/LocationDetails/LocationDetails';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/personajes" element={<CharactersList />} />
+        <Route path="/personajes/:characterId" element={<CharacterDetails />} />
+        <Route path="/episodios" element={<EpisodesList />} />
+        <Route path="/episodios/:episodeId" element={<EpisodeDetails />} />
+        <Route path="/ubicaciones" element={<LocationsList />} />
+        <Route path="/ubicaciones/:locationId" element={<LocationDetails />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
