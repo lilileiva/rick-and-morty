@@ -1,4 +1,35 @@
+@import '../../scss/variables.scss';
+
+
 .charactersList {
     width: 100%;
     height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.charactersList img {
+    width: 200px;
+}
+
+.characterCard {
+    background-color: rgb(69, 69, 69);
+    width: 200px;
+    height: 300px;
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 10px;
+    color: white;
+}
+
+.characterCard p {
+    width: 100%;
 }

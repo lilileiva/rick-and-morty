@@ -1,5 +1,5 @@
 import './Navbar.scss'
-import RickAndMorty from '../../img/Rick-And-Morty.png'
+import RickAndMorty from '../../img/Rick-And-Morty-Logo.png'
 import { Link } from 'react-router-dom';
 
 
@@ -13,17 +13,17 @@ function Navbar() {
                 <div className="navbarButtons">
                     <Link to="/personajes">
                         <button className="navbarButton">
-                            Personajes
+                            PERSONAJES
                         </button>
                     </Link>
                     <Link to="/ubicaciones">
                         <button className="navbarButton">
-                            Ubicaciones
+                            UBICACIONES
                         </button>
                     </Link>
                     <Link to="/episodios">
                         <button className="navbarButton">
-                            Episodios
+                            EPISODIOS
                         </button>
                     </Link>
                 </div>

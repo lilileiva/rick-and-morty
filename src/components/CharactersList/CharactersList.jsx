@@ -22,8 +22,10 @@ function CharactersList() {
             {
                 characters && characters.map(character => (
                     <Link to={`/personajes/${character.id}`}>
-                        <li>
-                            {character.name}
+                        <li className='characterCard'>
+                            <img src={character.image} alt='character' />
+                            <p>Nombre: {character.name}</p>
+                            <p>Especie: {character.species}</p>
                         </li>
                     </Link>
                 ))

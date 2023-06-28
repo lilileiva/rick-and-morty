@@ -2,6 +2,14 @@
 
 
 .App {
+  min-height: 100vh;
   display: grid;
   grid-template-rows: auto auto auto;
+  background: rgb(0,0,0);
+  background: linear-gradient(184deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgb(0, 63, 71) 70%, rgb(0, 86, 97) 85%, rgba(0,181,204,1) 100%);
+}
+
+a {
+  text-decoration: none;
+  list-style: none;
 }
