@@ -1,28 +1,17 @@
 import './EpisodeDetails.scss'
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getEpisodeDetails, getAllCharacters, clearStates } from '../../redux/actions'
+import { EpisodeContext, CharactersContext } from '../../context/apiContext';
+import EpisodeProvider from '../../context/EpisodeProvider';
 
 
 function EpisodeDetails() {
 
-    const { episodeId } = useParams()
-
-    const episode = useSelector(state => state.episode);
-    const characters = useSelector(state => state.characters);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getEpisodeDetails(episodeId))
-        dispatch(getAllCharacters())
-        return () => {
-            dispatch(clearStates())
-        }
-    }, [dispatch, episodeId]);
+    const episode = useContext(EpisodeContext);
+    const characters = useContext(CharactersContext);
 
     let filteredCharacters = []
-    if (Object.keys(episode).length > 0 && Object.keys(characters).length > 0) {
+    if (episode && characters) {
         let charactersId = episode.characters.map(character => character.split('/')[5])
         filteredCharacters = characters.filter(character => {
             if (charactersId.includes((character.id).toString())) return character
@@ -33,7 +22,7 @@ function EpisodeDetails() {
         <div className="container">
             <div className="episodeDetails">
                 {
-                    Object.keys(episode).length > 0 && (
+                    episode && (
                         <div className='episodeInfo'>
                             <p>Nombre: <b>{episode.name}</b></p>
                             <p>Fecha: <b>{episode.air_date}</b></p>
@@ -44,7 +33,7 @@ function EpisodeDetails() {
                 <h2 className='charactersIn'>Personajes del episodio</h2>
                 <div className="miniCards">
                     {
-                        Object.keys(filteredCharacters).length > 0 && filteredCharacters.map(character => (
+                        characters && filteredCharacters.map(character => (
                             <Link to={`/personajes/${character.id}`}>
                                 <li className='miniCharactersCard'>
                                     <img src={character.image} alt='character' />
@@ -59,4 +48,14 @@ function EpisodeDetails() {
     );
 }
 
-export default EpisodeDetails;
+function EpisodeDetailsWrapper() {
+    const { episodeId } = useParams();
+
+    return (
+        <EpisodeProvider episodeId={episodeId}>
+            <EpisodeDetails />
+        </EpisodeProvider>
+    );
+}
+
+export default EpisodeDetailsWrapper;

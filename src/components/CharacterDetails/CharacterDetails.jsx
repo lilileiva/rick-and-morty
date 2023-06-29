@@ -1,29 +1,19 @@
 import './CharacterDetails.scss'
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getCharacterDetails, clearStates } from '../../redux/actions'
+import { CharacterContext } from '../../context/apiContext';
+import CharacterProvider from '../../context/CharacterProvider';
 
 
 function CharacterDetails() {
 
-    const { characterId } = useParams()
-
-    const character = useSelector(state => state.character);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getCharacterDetails(characterId))
-        return () => {
-            dispatch(clearStates())
-        }
-    }, [dispatch, characterId]);
+    const character = useContext(CharacterContext);
 
     return (
         <div className="container">
             <div className="characterDetails">
                 {
-                    Object.keys(character).length > 0 && (
+                    character && (
                         <div>
                             <img src={character.image} alt='character' />
                             <div className="characterInfo">
@@ -48,4 +38,14 @@ function CharacterDetails() {
     );
 }
 
-export default CharacterDetails;
+function CharacterDetailsWrapper() {
+    const { characterId } = useParams();
+
+    return (
+        <CharacterProvider characterId={characterId}>
+            <CharacterDetails />
+        </CharacterProvider>
+    );
+}
+
+export default CharacterDetailsWrapper;

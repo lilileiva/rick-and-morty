@@ -1,48 +1,40 @@
 import './LocationDetails.scss'
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { getLocationDetails, clearStates } from '../../redux/actions'
+import { LocationContext } from '../../context/apiContext';
+import LocationProvider from '../../context/LocationProvider';
 
 
 function LocationDetails() {
 
-    const { locationId } = useParams()
-
-    const location = useSelector(state => state.location);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getLocationDetails(locationId))
-        return () => {
-            dispatch(clearStates())
-        }
-    }, [dispatch, locationId]);
-
-    const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
-        if (Object.keys(location).length > 0) {
-            setIsLoading(false)
-        }
-    }, [location])
+    const location = useContext(LocationContext);
 
     return (
         <div className="container">
             <div className="locationDetails">
                 {
-                    isLoading == false ? (
+                    location && (
                         <div className='locationInfo'>
                             <p>Nombre: <b>{location.name}</b></p>
                             <p>Tipo: <b>{location.type}</b></p>
-                            <p>Dimensión: <b>{location.dimension}</b></p>                            
+                            <p>Dimensión: <b>{location.dimension}</b></p>
                             <p>Creado: <b>{new Date(location.created).toString()}</b></p>
                         </div>
                     )
-                        : null
                 }
             </div>
         </div>
     );
 }
 
-export default LocationDetails;
+function LocationDetailsWrapper() {
+    const { locationId } = useParams();
+
+    return (
+        <LocationProvider locationId={locationId}>
+            <LocationDetails />
+        </LocationProvider>
+    );
+}
+
+export default LocationDetailsWrapper;
