@@ -1,14 +1,20 @@
 @import '../../scss/variables.scss';
 
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 100px;
+}
+
 .charactersList {
     width: 100%;
     height: calc(100vh - 150px);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
     justify-content: center;
-    align-items: center;
 }
 
 .charactersList img {
