@@ -30,23 +30,31 @@ function EpisodeDetails() {
     }
 
     return (
-        <div className="episodeDetails">
-            {
-                Object.keys(episode).length > 0 && <div>
-                    <p>{episode.name}</p>
-                    <p>{episode.air_date}</p>
-                    <p>{episode.episode}</p>
+        <div className="container">
+            <div className="episodeDetails">
+                {
+                    Object.keys(episode).length > 0 && (
+                        <div className='episodeInfo'>
+                            <p>Nombre: <b>{episode.name}</b></p>
+                            <p>Fecha: <b>{episode.air_date}</b></p>
+                            <p>Episodio: <b>{episode.episode}</b></p>
+                        </div>
+                    )
+                }
+                <h2 className='charactersIn'>Personajes del episodio</h2>
+                <div className="miniCards">
+                    {
+                        Object.keys(filteredCharacters).length > 0 && filteredCharacters.map(character => (
+                            <Link to={`/personajes/${character.id}`}>
+                                <li className='miniCharactersCard'>
+                                    <img src={character.image} alt='character' />
+                                    <p>{character.name}</p>
+                                </li>
+                            </Link>
+                        ))
+                    }
                 </div>
-            }
-            {
-                Object.keys(filteredCharacters).length > 0 && filteredCharacters.map(character => (
-                    <Link to={`/personajes/${character.id}`}>
-                        <li>
-                            {character.name}
-                        </li>
-                    </Link>
-                ))
-            }
+            </div>
         </div>
     );
 }

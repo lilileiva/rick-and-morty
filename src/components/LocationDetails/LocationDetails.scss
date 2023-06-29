@@ -1,4 +1,13 @@
 .locationDetails {
     width: 100%;
-    height: calc(100vh - 150px);
+    height: fit-content;
+}
+
+.locationInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
 }

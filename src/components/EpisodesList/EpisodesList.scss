@@ -1,4 +1,24 @@
 .episodesList {
     width: 100%;
     height: calc(100vh - 150px);
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    justify-content: center;
+}
+
+.episodeCard {
+    background-color: rgb(69, 69, 69);
+    width: 200px;
+    height: 300px;
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    font-size: 25px;
 }

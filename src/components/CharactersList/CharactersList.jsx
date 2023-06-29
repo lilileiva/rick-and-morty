@@ -19,7 +19,7 @@ function CharactersList() {
     }, [dispatch]);
 
     const [page, setPage] = useState(1);
-    const elementsPerPage = 6
+    const elementsPerPage = 8
     const totalPages = page * elementsPerPage;
     const firstPage = totalPages - elementsPerPage;
     const charactersPaged = characters.slice(firstPage, totalPages);
@@ -36,8 +36,8 @@ function CharactersList() {
                         <Link to={`/personajes/${character.id}`}>
                             <li className='characterCard'>
                                 <img src={character.image} alt='character' />
-                                <p>Nombre: {character.name}</p>
-                                <p>Especie: {character.species}</p>
+                                <p className='characterName'>{character.name}</p>
+                                <p className='characterSpecie'>{character.species}</p>
                             </li>
                         </Link>
                     ))

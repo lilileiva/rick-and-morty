@@ -1,4 +1,19 @@
 .characterDetails {
     width: 100%;
-    height: calc(100vh - 150px);
+    height: fit-content;
+    display: flex;    
+    justify-content: center;
+}
+
+.characterDetails img {
+    width: 320px;
+}
+
+.characterInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
 }

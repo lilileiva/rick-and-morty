@@ -17,27 +17,33 @@ function CharacterDetails() {
         return () => {
             dispatch(clearStates())
         }
-    }, [dispatch, characterId]);    
+    }, [dispatch, characterId]);
 
     return (
-        <div className="characterDetails">
-            {
-                Object.keys(character).length > 0 && <div>
-                    <img src={character.image} alt='character' />
-                    <p>{character.name}</p>
-                    <p>{character.type}</p>
-                    <p>{character.status}</p>
-                    <p>{character.gender}</p>
-                    <p>{character.species}</p>
-                    {
-                        character.origin.name != 'unknown'
-                            ? <Link to={`/ubicaciones/${character.origin.url.split('/')[5]}`}>
-                                <a>{character.origin.name}</a>
-                            </Link>
-                            : <a>{character.origin.name}</a>
-                    }
-                </div>
-            }
+        <div className="container">
+            <div className="characterDetails">
+                {
+                    Object.keys(character).length > 0 && (
+                        <div>
+                            <img src={character.image} alt='character' />
+                            <div className="characterInfo">
+                                <p>Name: <b>{character.name}</b></p>
+                                <p>Tipo: {character.type == null ? <b>{character.type}</b> : "..."}</p>
+                                <p>Estado: <b>{character.status}</b></p>
+                                <p>Género: <b>{character.gender}</b></p>
+                                <p>Especie: <b>{character.species}</b></p>
+                                {
+                                    character.origin.name != 'unknown'
+                                        ? <Link to={`/ubicaciones/${character.origin.url.split('/')[5]}`}>
+                                            <a>Planeta: <b>{character.origin.name}</b></a>
+                                        </Link>
+                                        : <a>Planeta: <b>Desconocido</b></a>
+                                }
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
         </div>
     );
 }

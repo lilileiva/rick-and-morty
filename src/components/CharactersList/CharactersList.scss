@@ -17,9 +17,6 @@
     justify-content: center;
 }
 
-.charactersList img {
-    width: 200px;
-}
 
 .characterCard {
     background-color: rgb(69, 69, 69);
@@ -29,11 +26,28 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
-    text-align: left;
-    padding: 10px;
+    text-align: center;    
     color: white;
+    overflow: hidden;
+}
+
+.characterCard img {
+    width: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.characterName, .characterSpecie {
+    margin: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+}
+
+.characterName {
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .characterCard p {

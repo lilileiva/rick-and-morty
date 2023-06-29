@@ -5,8 +5,7 @@ function Paging({ listLength, page, elementsPerPage, setPage, setPageTo }) {
 
     const currentPage = page
     const pages = []
-    console.log(page)
-    console.log(listLength)
+
     const createPages = (pages) => {
         for (let i = 1; i <= Math.ceil(listLength / elementsPerPage); i++) {
             pages.push(i);
