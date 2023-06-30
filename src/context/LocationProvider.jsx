@@ -6,13 +6,15 @@ import axios from 'axios'
 const LocationProvider = ({ children, locationId }) => {
 
     const [apiData, setApiData] = useState(null);
+    const [fetchStatus, setFetchStatus] = useState("loading");
     
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${baseURL}/location/${locationId}`)    
+            const response = await axios.get(`${baseURL}/location/${locationId}`)
+            setFetchStatus("success");
             setApiData(response.data);
         } catch (error) {
-            setApiData(error);
+            setFetchStatus("error");
             console.error('Error fetching API data:', error);
         }
     };
@@ -22,7 +24,7 @@ const LocationProvider = ({ children, locationId }) => {
     }, []);
 
     return (
-        <LocationContext.Provider value={apiData}>
+        <LocationContext.Provider value={{apiData, fetchStatus}}>
             {children}
         </LocationContext.Provider>
     );

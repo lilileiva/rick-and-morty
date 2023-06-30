@@ -6,13 +6,15 @@ import axios from 'axios'
 const EpisodesProvider = ({ children }) => {
 
     const [apiData, setApiData] = useState(null);
+    const [fetchStatus, setFetchStatus] = useState("loading");
     
     const fetchData = async () => {
         try {            
-            const response = await axios.get(`${baseURL}/episode`)            
+            const response = await axios.get(`${baseURL}/episode`)
+            setFetchStatus("success");
             setApiData(response.data.results);
         } catch (error) {
-            setApiData(error);
+            setFetchStatus("error");
             console.error('Error fetching API data:', error);
         }
     };
@@ -22,7 +24,7 @@ const EpisodesProvider = ({ children }) => {
     }, []);
 
     return (
-        <EpisodesContext.Provider value={apiData}>
+        <EpisodesContext.Provider value={{apiData, fetchStatus}}>
             {children}
         </EpisodesContext.Provider>
     );

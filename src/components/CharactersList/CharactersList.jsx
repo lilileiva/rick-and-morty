@@ -3,17 +3,20 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Paging from '../Paging/Paging';
 import { CharactersContext } from '../../context/apiContext';
+import Loader from '../Loader/Loader';
+import Error from '../Error/Error';
 
 
 function CharactersList() {
 
     const characters = useContext(CharactersContext);
+    let charactersData = characters?.apiData
 
     const [page, setPage] = useState(1);
     const elementsPerPage = 8
     const totalPages = page * elementsPerPage;
     const firstPage = totalPages - elementsPerPage;
-    const charactersPaged = characters !== null ? characters.slice(firstPage, totalPages) : null;
+    const charactersPaged = characters?.fetchStatus === "success" ? charactersData.slice(firstPage, totalPages) : null;
 
     const setPageTo = (page) => {
         setPage(page)
@@ -22,7 +25,7 @@ function CharactersList() {
     return (
         <div className='container'>
             {
-                characters && <>
+                characters?.fetchStatus === "success" && <>
                     <div className="charactersList">
                         {
                             charactersPaged.map(character => (
@@ -38,6 +41,12 @@ function CharactersList() {
                     </div>
                     <Paging listLength={characters.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
                 </>
+            }
+            {
+                characters?.fetchStatus === "loading" && <Loader />
+            }
+            {
+                characters?.fetchStatus === "error" && <Error />
             }
         </div>
     );

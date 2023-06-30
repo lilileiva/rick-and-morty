@@ -3,25 +3,34 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { LocationContext } from '../../context/apiContext';
 import LocationProvider from '../../context/LocationProvider';
+import Loader from '../Loader/Loader';
+import Error from '../Error/Error';
 
 
 function LocationDetails() {
 
     const location = useContext(LocationContext);
+    const locationData = location?.apiData
 
     return (
         <div className="container">
             <div className="locationDetails">
                 {
-                    location && (
+                    location?.fetchStatus === "success" && (
                         <div className='locationInfo'>
-                            <p>Nombre: <b>{location.name}</b></p>
-                            <p>Tipo: <b>{location.type}</b></p>
-                            <p>Dimensión: <b>{location.dimension}</b></p>
-                            <p>Creado: <b>{new Date(location.created).toString()}</b></p>
+                            <p>Nombre: <b>{locationData.name}</b></p>
+                            <p>Tipo: <b>{locationData.type}</b></p>
+                            <p>Dimensión: <b>{locationData.dimension}</b></p>
+                            <p>Creado: <b>{new Date(locationData.created).toString()}</b></p>
                         </div>
                     )
                 }
+                {
+                location?.fetchStatus === "loading" && <Loader />
+            }
+            {
+                location?.fetchStatus === "error" && <Error />
+            }
             </div>
         </div>
     );

@@ -6,13 +6,15 @@ import axios from 'axios'
 const CharactersProvider = ({ children }) => {
 
     const [apiData, setApiData] = useState(null);
+    const [fetchStatus, setFetchStatus] = useState("loading");
     
     const fetchData = async () => {
         try {            
-            const response = await axios.get(`${baseURL}/character`)            
+            const response = await axios.get(`${baseURL}/character`)       
+            setFetchStatus("success");     
             setApiData(response.data.results);
         } catch (error) {
-            setApiData(error);
+            setFetchStatus("error");
             console.error('Error fetching API data:', error);
         }
     };
@@ -22,7 +24,7 @@ const CharactersProvider = ({ children }) => {
     }, []);
 
     return (
-        <CharactersContext.Provider value={apiData}>
+        <CharactersContext.Provider value={{apiData, fetchStatus}}>
             {children}
         </CharactersContext.Provider>
     );
