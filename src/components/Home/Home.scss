@@ -1,4 +1,28 @@
+@import '../../scss/variables.scss';
+
+
 .home {
-    width: 100%;
-    height: calc(100vh - 150px);
+    width: 80%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border: 5px solid $green;
+    border-radius: 10px;
+    animation-duration: 1s;
+    animation-name: intro;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes intro {
+    from {
+        box-shadow: 0 0 100px $green;
+    }
+
+    to {
+        box-shadow: 0 0 50px $green;
+    }
 }

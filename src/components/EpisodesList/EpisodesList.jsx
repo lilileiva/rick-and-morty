@@ -5,6 +5,7 @@ import Paging from '../Paging/Paging';
 import { EpisodesContext } from '../../context/apiContext';
 import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
+import tv from '../../img/tv.png'
 
 
 function EpisodesList() {
@@ -31,7 +32,8 @@ function EpisodesList() {
                             episodesPaged.map(episode => (
                                 <Link to={`/episodios/${episode.id}`}>
                                     <li className='episodeCard'>
-                                        {episode.name}
+                                        <img src={tv} alt="episode" />
+                                        <p>{episode.name}</p>
                                     </li>
                                 </Link>
                             ))
