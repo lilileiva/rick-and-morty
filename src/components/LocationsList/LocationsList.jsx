@@ -30,16 +30,16 @@ function LocationsList() {
                         {
                             locationsPaged.map(location => (
                                 <Link to={`/ubicaciones/${location.id}`}>
-                                    <li className='locationCard'>
-                                        {location.name}
-                                        {location.type}
-                                        {location.dimension}
+                                    <li className='locationCard'>                                
+                                        <p>{location.name}</p>
+                                        <p>{location.type}</p>
+                                        <p>{location.dimension}</p>
                                     </li>
                                 </Link>
                             ))
                         }
                     </div>
-                    <Paging listLength={locations.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
+                    <Paging listLength={locationsData.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
                 </>
             }
             {

@@ -30,12 +30,13 @@ function EpisodeDetails() {
                     <div className="episodeDetails">
                         {
                             <div className='episodeInfo'>
+                                <h2>Detalles del episodio</h2>
                                 <p>Nombre: <b>{episodeData.name}</b></p>
                                 <p>Fecha: <b>{episodeData.air_date}</b></p>
                                 <p>Episodio: <b>{episodeData.episode}</b></p>
                             </div>
                         }
-                        <h2 className='charactersIn'>Personajes del episodio</h2>
+                        <h3 className='charactersIn'>Personajes del episodio</h3>
                         <div className="miniCards">
                             {
                                 filteredCharacters.map(character => (

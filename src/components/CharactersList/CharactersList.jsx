@@ -32,14 +32,16 @@ function CharactersList() {
                                 <Link to={`/personajes/${character.id}`}>
                                     <li className='characterCard'>
                                         <img src={character.image} alt='character' />
-                                        <p className='characterName'>{character.name}</p>
-                                        <p className='characterSpecie'>{character.species}</p>
+                                        <div className="characterDescription">
+                                            <p className='characterName'>{character.name}</p>
+                                            <p className='characterSpecie'>{character.species}</p>
+                                        </div>
                                     </li>
                                 </Link>
                             ))
                         }
                     </div>
-                    <Paging listLength={characters.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
+                    <Paging listLength={charactersData.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
                 </>
             }
             {

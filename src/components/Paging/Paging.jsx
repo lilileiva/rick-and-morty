@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import './Paging.scss'
 
 
 function Paging({ listLength, page, elementsPerPage, setPage, setPageTo }) {
@@ -21,16 +21,19 @@ function Paging({ listLength, page, elementsPerPage, setPage, setPageTo }) {
         if (page < pages.length) setPage(page + 1)
     }
 
+    let next = '>'
+    let back = '<'
+
     return (
         <>
             {
                 pages.length > 1 && (
-                    <div className='pagingContainer' >
-                        <button onClick={() => getPrevious(pages)}>back</button>
+                    <div className='paging'>
+                        <button onClick={() => getPrevious(pages)}>{`${back}`}</button>
                         {pages.map(page => (
                             <a className={(currentPage === page ? 'pageActive' : 'page')} key={page} onClick={() => setPageTo(page)}>{page}</a>
                         ))}
-                        <button onClick={() => getNext(pages)}>next</button>
+                        <button onClick={() => getNext(pages)}>{`${next}`}</button>
                     </div>
                 )
             }

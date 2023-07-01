@@ -1,27 +1,16 @@
+@import '../../scss/mixins.scss';
+
 .episodesList {
-    width: 100%;
-    height: fit-content;    
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto;
-    justify-content: center;
-    align-items: center;
+    @include list_styles();
 }
 
 .episodeCard {
-    background-color: rgb(69, 69, 69);
-    width: 250px;
-    height: 250px;
-    margin: 5px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-    font-size: 25px;
+    @include card_styles();
+}
+
+.episodeCard:hover {
+    transform: scale(1.08);
+    transition: 0.2s;
 }
 
 .episodeCard img {

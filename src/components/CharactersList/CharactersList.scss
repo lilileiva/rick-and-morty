@@ -1,42 +1,57 @@
 @import '../../scss/variables.scss';
-
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 100px;
-}
+@import '../../scss/mixins.scss';
 
 .charactersList {
-    width: 100%;
-    height: calc(100vh - 150px);
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto;
-    justify-content: center;
+    @include list_styles();
 }
-
 
 .characterCard {
     background-color: rgb(69, 69, 69);
-    width: 200px;
-    height: 300px;
-    margin: 5px;
+    width: 250px;
+    height: 250px;    
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: top;
     align-items: center;
-    text-align: center;    
+    text-align: center;
     color: white;
     overflow: hidden;
+    z-index: 3;
+    transition: 0.2s;
+}
+
+.characterCard:hover {
+    transform: scale(1.08);
+    transition: 0.2s;
 }
 
 .characterCard img {
-    width: 200px;
+    width: 250px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.characterDescription {
+    z-index: 3;
+    position: absolute;
+    background: rgb(69, 69, 69, 0);
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    transition: 0.2s;
+    text-shadow: 1px solid black;    
+}
+
+.characterDescription:hover {
+    justify-content: center;  
+    background: rgb(69, 69, 69, 0.5);
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 
 .characterName, .characterSpecie {

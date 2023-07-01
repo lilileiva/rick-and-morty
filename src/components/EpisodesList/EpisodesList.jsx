@@ -39,7 +39,7 @@ function EpisodesList() {
                             ))
                         }
                     </div>
-                    <Paging listLength={episodes.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
+                    <Paging listLength={episodesData.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
                 </>
             }
             {

@@ -18,8 +18,11 @@ function CharacterDetails() {
                 {
                     character?.fetchStatus === "success" && (
                         <div>
-                            <img src={characterData.image} alt='character' />
+                            <div className="imgContainer">
+                                <img src={characterData.image} alt='character' />
+                            </div>
                             <div className="characterInfo">
+                                <h2>Detalles del personaje</h2>
                                 <p>Name: <b>{characterData.name}</b></p>
                                 <p>Tipo: {characterData.type == null ? <b>{characterData.type}</b> : "..."}</p>
                                 <p>Estado: <b>{characterData.status}</b></p>

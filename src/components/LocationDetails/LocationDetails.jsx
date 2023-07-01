@@ -1,4 +1,5 @@
 import './LocationDetails.scss'
+import '../../App.scss'
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { LocationContext } from '../../context/apiContext';
@@ -18,6 +19,7 @@ function LocationDetails() {
                 {
                     location?.fetchStatus === "success" && (
                         <div className='locationInfo'>
+                            <h2>Detalles del episodio</h2>
                             <p>Nombre: <b>{locationData.name}</b></p>
                             <p>Tipo: <b>{locationData.type}</b></p>
                             <p>Dimensión: <b>{locationData.dimension}</b></p>

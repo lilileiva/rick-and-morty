@@ -1,0 +1,26 @@
+@import '../../scss/variables.scss';
+
+.paging {
+    color: white;
+    display: flex;
+    width: 200px;    
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 100px;
+}
+
+.paging button {
+    color: $turquoise;
+    background-color: white;
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;    
+}
+
+.paging a, .paging button {
+    cursor: pointer;
+    font-weight: 700;
+}

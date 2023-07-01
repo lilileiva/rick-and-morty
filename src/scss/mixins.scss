@@ -1,0 +1,41 @@
+@mixin list_styles() {
+    width: 100%;
+    height: fit-content;    
+    display: grid;
+    gap: 15px;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+    margin-bottom: 120px;
+    padding: 20px;
+}
+
+@mixin card_styles() {
+    background-color: rgb(69, 69, 69);
+    width: 250px;
+    height: 250px;
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    font-size: 25px;
+    transition: 0.2s;
+    z-index: 3;
+}
+
+@mixin details_styles() {
+    width: 100%;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
