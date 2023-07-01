@@ -9,6 +9,7 @@ import EpisodesList from './components/EpisodesList/EpisodesList';
 import EpisodeDetailsWrapper from './components/EpisodeDetails/EpisodeDetails';
 import LocationsList from './components/LocationsList/LocationsList';
 import LocationDetailsWrapper from './components/LocationDetails/LocationDetails';
+import NotFound from './components/NotFound/NotFound';
 import CharactersProvider from './context/CharactersProvider';
 import LocationsProvider from './context/LocationsProvider';
 import EpisodesProvider from './context/EpisodesProvider';
@@ -29,6 +30,7 @@ function App() {
               <Route path="/episodios/:episodeId" element={<EpisodeDetailsWrapper />} />
               <Route path="/ubicaciones" element={<LocationsList />} />
               <Route path="/ubicaciones/:locationId" element={<LocationDetailsWrapper />} />
+              <Route path="*" element={<NotFound />} />              
             </Routes>
             <Footer />
           </div>
