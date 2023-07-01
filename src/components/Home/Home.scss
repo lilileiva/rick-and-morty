@@ -2,7 +2,7 @@
 
 
 .home {
-    width: 80%;
+    width: 75%;
     height: inherit;
     display: flex;
     flex-direction: column;
@@ -11,10 +11,9 @@
     align-items: center;
     border: 5px solid $green;
     border-radius: 10px;
-    animation-duration: 1s;
-    animation-name: intro;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation: intro 1s alternate infinite;
+    margin: 50px 0;
+    z-index: 5;
 }
 
 @keyframes intro {
@@ -24,5 +23,90 @@
 
     to {
         box-shadow: 0 0 50px $green;
+    }
+}
+
+.pepinos {
+    width: 100vh;
+    position: fixed;
+    animation: pepinos 5s linear infinite;
+    overflow: visible;    
+}
+
+@keyframes pepinos {
+    from {        
+        left: 0;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+.pepino {
+    position: absolute;
+    width: 50px;
+    animation: pepino 1s linear infinite;
+
+}
+
+.pepino:nth-child(1) {
+    top: 100px;
+    left: 500px;
+    rotate: 50deg;
+}
+
+.pepino:nth-child(2) {
+    top: 200px;
+    left: 200px;
+    rotate: 25deg;
+}
+
+.pepino:nth-child(3) {
+    top: -250px;
+    left: 500px;
+    rotate: 5deg;
+}
+
+.pepino:nth-child(4) {
+    top: 200px;
+    left: -100px;
+    rotate: 80deg;
+}
+
+.pepino:nth-child(5) {
+    position: absolute;
+    top: 50px;
+    left: 800px;
+}
+
+.pepino:nth-child(6) {
+    position: absolute;
+    top: 150px;
+    left: -500px;
+    rotate: 60deg;
+}
+
+.pepino:nth-child(7) {
+    position: absolute;
+    top: -100px;
+    left: 1000px;
+    rotate: 60deg;
+}
+
+.pepino:nth-child(8) {
+    position: absolute;
+    top: -250px;
+    left: -500px;
+    rotate: 60deg;
+}
+
+@keyframes pepino {
+    from {
+        transform: rotate(180deg);
+    }
+
+    to {
+        transform: rotate(-180deg);
     }
 }
