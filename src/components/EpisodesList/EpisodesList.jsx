@@ -38,8 +38,8 @@ function EpisodesList() {
                                 </Link>
                             ))
                         }
+                        <Paging listLength={episodesData.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
                     </div>
-                    <Paging listLength={episodesData.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
                 </>
             }
             {

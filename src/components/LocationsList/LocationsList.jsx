@@ -30,7 +30,7 @@ function LocationsList() {
                         {
                             locationsPaged.map(location => (
                                 <Link to={`/ubicaciones/${location.id}`}>
-                                    <li className='locationCard'>                                
+                                    <li className='locationCard'>
                                         <p>{location.name}</p>
                                         <p>{location.type}</p>
                                         <p>{location.dimension}</p>
