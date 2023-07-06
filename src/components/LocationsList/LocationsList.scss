@@ -4,6 +4,24 @@
     @include list_styles();
 }
 
+@media (max-width: 1200px) {
+    .locationsList {
+        @include list_styles_1200px();
+    }
+}
+
+@media (max-width: 1000px) {
+    .locationsList {
+        @include list_styles_1000px();
+    }
+}
+
+@media (max-width: 600px) {
+    .locationsList {
+        @include list_styles_600px();
+    }
+}
+
 .locationCard {
     @include card_styles();
 }

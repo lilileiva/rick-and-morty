@@ -1,19 +1,29 @@
 @import '../../scss/variables.scss';
+@import '../../scss/mixins.scss';
+
 
 .navbar {
     width: 100%;
-    height: 100px;
+    height: fit-content;
     background-color: black;
     display: flex;
-    align-content: center;    
+    align-content: center;
 }
 
 .navbarContainer {
-    width: calc(100% - 50px);
-    padding: 0 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include navbar_container_styles();
+}
+
+@media (max-width: 1200px) {
+    .navbarContainer {
+        @include navbar_container_styles_1200px();
+    }
+}
+
+@media (max-width: 400px) {
+    .navbarContainer {
+        @include navbar_container_styles_400px();
+    }
 }
 
 .navbarLogo {
@@ -22,11 +32,11 @@
 }
 
 .navbarButton {
-    border: 0;
-    background: none;
-    font-weight: 700;
-    font-size: large;
-    cursor: pointer;
-    color: white;
-    margin-right: 20px;
+    @include navbar_buttons_styles();
+}
+
+@media (max-width: 500px) {
+    .navbarButtons {
+        @include navbar_buttons_styles_500px();
+    }
 }

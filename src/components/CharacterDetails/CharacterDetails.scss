@@ -1,10 +1,8 @@
 @import '../../scss/variables.scss';
+@import '../../scss/mixins.scss';
 
 .characterDetails {
-    width: 100%;
-    height: fit-content;
-    display: flex;    
-    justify-content: center;
+    @include details_styles();
 }
 
 .characterDetails img {
@@ -19,12 +17,19 @@
 }
 
 .characterInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 40px;
-    font-weight: 600;
-    color: white;
+    @include info_styles();
+}
+
+@media (max-width: 1000px) {
+    .characterInfo {
+        @include info_styles_1000px();
+    }
+}
+
+@media (max-width: 600px) {
+    .characterInfo {
+        @include info_styles_600px();
+    }
 }
 
 .characterInfo a {

@@ -4,6 +4,24 @@
     @include list_styles();
 }
 
+@media (max-width: 1200px) {
+    .episodesList {
+        @include list_styles_1200px();
+    }
+}
+
+@media (max-width: 1000px) {
+    .episodesList {
+        @include list_styles_1000px();
+    }
+}
+
+@media (max-width: 600px) {
+    .episodesList {
+        @include list_styles_600px();
+    }
+}
+
 .episodeCard {
     @include card_styles();
 }

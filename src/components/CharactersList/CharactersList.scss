@@ -1,14 +1,34 @@
 @import '../../scss/variables.scss';
 @import '../../scss/mixins.scss';
 
+
+
 .charactersList {
     @include list_styles();
+}
+
+@media (max-width: 1200px) {
+    .charactersList {
+        @include list_styles_1200px();
+    }
+}
+
+@media (max-width: 1000px) {
+    .charactersList {
+        @include list_styles_1000px();
+    }
+}
+
+@media (max-width: 600px) {
+    .charactersList {
+        @include list_styles_600px();
+    }
 }
 
 .characterCard {
     background-color: rgb(69, 69, 69);
     width: 250px;
-    height: 250px;    
+    height: 250px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -44,20 +64,21 @@
     justify-content: end;
     align-items: center;
     transition: 0.2s;
-    text-shadow: 1px solid black;    
+    text-shadow: 1px solid black;
 }
 
 .characterDescription:hover {
-    justify-content: center;  
+    justify-content: center;
     background: rgb(69, 69, 69, 0.5);
     transform: scale(1.1);
     transition: 0.3s;
 }
 
-.characterName, .characterSpecie {
+.characterName,
+.characterSpecie {
     margin: 10px;
     overflow: hidden;
-    text-overflow: ellipsis;    
+    text-overflow: ellipsis;
 }
 
 .characterName {

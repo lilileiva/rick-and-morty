@@ -19,7 +19,7 @@ function LocationDetails() {
                 {
                     location?.fetchStatus === "success" && (
                         <div className='locationInfo'>
-                            <h2>Detalles del episodio</h2>
+                            <h2>Detalles de la ubicación</h2>
                             <p>Nombre: <b>{locationData.name}</b></p>
                             <p>Tipo: <b>{locationData.type}</b></p>
                             <p>Dimensión: <b>{locationData.dimension}</b></p>

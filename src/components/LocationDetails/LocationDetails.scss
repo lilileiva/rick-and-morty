@@ -1,7 +1,9 @@
 @import '../../scss/mixins.scss';
 
+
 .locationDetails {
-    @include details_styles();}
+    @include details_styles();
+}
 
 .locationInfo {
     display: flex;
