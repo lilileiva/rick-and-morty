@@ -25,7 +25,7 @@ function CharactersList() {
     return (
         <div className='container'>
             {
-                characters?.fetchStatus === "success" && <>
+                characters?.fetchStatus === "success" && <div className='listContainer'>
                     <div className="charactersList">
                         {
                             charactersPaged.map(character => (
@@ -42,7 +42,7 @@ function CharactersList() {
                         }
                     </div>
                     <Paging listLength={charactersData.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
-                </>
+                </div>
             }
             {
                 characters?.fetchStatus === "loading" && <Loader />

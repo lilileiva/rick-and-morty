@@ -4,22 +4,22 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-content: center;
 }
 
 .paging {
-    color: white;
+    color: white;    
     display: flex;
     width: 200px;    
     flex-direction: row;
     justify-content: space-around;
     align-content: center;
-    align-items: center;    
-    margin-bottom: 50px;    
+    align-items: center;         
 }
 
 .paging button {
-    color: $turquoise;
-    background-color: white;
+    color: white;
+    background-color: rgb(69, 69, 69);
     border: 0;
     padding: 10px;
     border-radius: 5px;    
@@ -28,4 +28,19 @@
 .paging a, .paging button {
     cursor: pointer;
     font-weight: 700;
+}
+
+.paging button:hover {
+    color: $green;
+    transition: 0.3s;
+    background: rgb(60, 60, 60);
+}
+
+.page:hover {
+    color: $green;
+    transition: 0.3s;
+}
+
+.pageActive {
+    color: $green;
 }

@@ -9,8 +9,8 @@
     align-items: center;
     overflow: hidden;
     color: white;    
-    margin-bottom: 80px;
     padding: 20px;
+    margin-bottom: 50px;
 }
 
 @mixin list_styles_1200px() {
@@ -24,7 +24,6 @@
     align-items: center;
     overflow: hidden;
     color: black;    
-    margin-bottom: 80px;
     padding: 20px;
 }
 
@@ -39,7 +38,6 @@
     align-items: center;
     overflow: hidden;
     color: black;    
-    margin-bottom: 80px;
     padding: 20px;
 }
 
@@ -54,7 +52,6 @@
     align-items: center;
     overflow: hidden;
     color: black;    
-    margin-bottom: 80px;
     padding: 20px;
 }
 
@@ -74,6 +71,7 @@
     font-size: 25px;
     transition: 0.2s;
     z-index: 3;
+    padding: 5px;
 }
 
 @mixin details_styles() {
@@ -83,7 +81,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     margin-top: 50px;
 }
 
@@ -117,6 +115,7 @@
 }
 
 @mixin navbar_container_styles() {
+    min-height: 115px;
     width: calc(100% - 50px);
     padding: 0 25px;
     display: flex;
@@ -147,7 +146,8 @@
     font-size: large;
     cursor: pointer;
     color: white;
-    margin-right: 20px;    
+    margin-right: 20px;   
+    font-family: 'Work Sans', sans-serif; 
 }
 
 @mixin navbar_buttons_styles_500px() {
@@ -162,5 +162,6 @@
     justify-content: center;
     align-content: center; 
     align-self: center;
-    text-align: center;    
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
 }

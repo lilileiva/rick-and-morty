@@ -6,10 +6,11 @@
   width: 100vw;
   display: grid;
   grid-template-columns: auto;
-  justify-items: center;
-  grid-template-rows: auto auto auto;
+  justify-content: center;
+  grid-template-rows: max-content auto;
   background: rgb(0,0,0);
-  background: linear-gradient(184deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgb(0, 63, 71) 70%, rgb(0, 86, 97) 85%, rgba(0,181,204,1) 100%);
+  background: linear-gradient(184deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgb(4, 86, 34) 70%, rgb(14, 118, 52) 85%, rgb(25, 139, 67) 100%);  
+  font-family: 'Work Sans', sans-serif;
 }
 
 .container {
@@ -17,9 +18,20 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  align-items: center;
-  min-height: calc(100vh - 250px);
-  width: calc(100vw - 100px);  
+  align-items: center;  
+  height: fit-content;
+  width: calc(100vw - 100px);   
+  align-self: center;
+}
+
+.listContainer {
+  display: flex;
+  width: inherit;
+  min-height: calc(100vh - 200px);
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+
 }
 
 p {

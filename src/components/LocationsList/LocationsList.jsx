@@ -25,7 +25,7 @@ function LocationsList() {
     return (
         <div className='container'>
             {
-                locations?.fetchStatus === "success" && <>
+                locations?.fetchStatus === "success" && <div className='listContainer'>
                     <div className="locationsList">
                         {
                             locationsPaged.map(location => (
@@ -40,7 +40,7 @@ function LocationsList() {
                         }
                     </div>
                     <Paging listLength={locationsData.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
-                </>
+                </div>
             }
             {
                 locations?.fetchStatus === "loading" && <Loader />

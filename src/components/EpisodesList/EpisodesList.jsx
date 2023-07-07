@@ -26,7 +26,7 @@ function EpisodesList() {
     return (
         <div className='container'>
             {
-                episodes?.fetchStatus === "success" && <>
+                episodes?.fetchStatus === "success" && <div className='listContainer'>
                     <div className="episodesList">
                         {
                             episodesPaged.map(episode => (
@@ -40,7 +40,7 @@ function EpisodesList() {
                         }
                     </div>
                     <Paging listLength={episodesData.length} page={page} elementsPerPage={elementsPerPage} setPage={setPage} setPageTo={setPageTo} />
-                </>
+                </div>
             }
             {
                 episodes?.fetchStatus === "loading" && <Loader />

@@ -31,8 +31,7 @@ function App() {
               <Route path="/ubicaciones" element={<LocationsList />} />
               <Route path="/ubicaciones/:locationId" element={<LocationDetailsWrapper />} />
               <Route path="*" element={<NotFound />} />              
-            </Routes>
-            <Footer />
+            </Routes>            
           </div>
         </EpisodesProvider>
       </LocationsProvider>

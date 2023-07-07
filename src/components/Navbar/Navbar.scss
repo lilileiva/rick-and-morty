@@ -35,6 +35,11 @@
     @include navbar_buttons_styles();
 }
 
+.navbarButton:hover {    
+    color: $green;
+    transition: 0.2s;
+}
+
 @media (max-width: 500px) {
     .navbarButtons {
         @include navbar_buttons_styles_500px();

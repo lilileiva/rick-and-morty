@@ -15,7 +15,19 @@
 }
 
 .episodeInfo {
-    width: fit-content;
+    @include info_styles();
+}
+
+@media (max-width: 1000px) {
+    .episodeInfo {
+        @include info_styles_1000px();
+    }
+}
+
+@media (max-width: 600px) {
+    .episodeInfo {
+        @include info_styles_600px();
+    }
 }
 
 .charactersIn {
@@ -27,16 +39,25 @@
 .miniCards {
     display: flex;
     margin: 10px 0;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;    
 }
 
 .miniCharactersCard {
     width: 100px;
     height: 100px;
     background-color: white;
-    margin: 0 20px;
+    margin: 15px 20px;
     border-radius: 10px;
     transition: 0.2s;
+}
+
+.miniCharactersCard p {
+    width: 100%;
+    height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .miniCharactersCard:hover {

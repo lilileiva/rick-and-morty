@@ -6,10 +6,17 @@
 }
 
 .locationInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 40px;
-    font-weight: 600;
-    color: white;
+    @include info_styles();
+}
+
+@media (max-width: 1000px) {
+    .locationInfo {
+        @include info_styles_1000px();
+    }
+}
+
+@media (max-width: 600px) {
+    .locationInfo {
+        @include info_styles_600px();
+    }
 }
